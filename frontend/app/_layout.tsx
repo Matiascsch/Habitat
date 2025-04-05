@@ -10,20 +10,18 @@ import MenuBar from "../components/MenuBar";
 export default function CustomLayout() {
   return (
     <>
+      <StatusBar
+        hidden={false}
+        backgroundColor="#000"
+      />
+
       <SafeAreaView style={styles.container}>
-        <StatusBar 
-          hidden={false}
-          backgroundColor={COLORS.background}
-        />
-        <StatusBar></StatusBar>
-        {/* Contenido dinámico */}
         <ScrollView style={styles.content}>
           <Slot />
         </ScrollView>
 
-      </SafeAreaView>
-      {/* Footer global */}
       <MenuBar />
+      </SafeAreaView>
     </>
   );
 }
