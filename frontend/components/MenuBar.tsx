@@ -10,35 +10,38 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 import { COLORS } from '@/constants/Themes';
 
 export default function MenuBar() {
-  useEffect(() => {
-
-  })
-
-  const [isPressed, setIsPressed] = useState(false);
-
-  const handlePress = () => setIsPressed(!isPressed);
-
   const menu_items = [
-    { name: "Home", icon: <AntDesign name="home" style={styles.icon} />, href: "/" },
-    { name: "Estadisticas", icon: <Ionicons name="stats-chart-outline" style={styles.icon} />, href: "/stats" },
-    { name: "Profile", icon: <AntDesign name="user" style={styles.icon} />, href: "/profile" },
-    { name: "Settings", icon: <AntDesign name="setting" style={styles.icon} />, href: "/settings" },
+    { 
+      icon: <AntDesign name="home" style={styles.icon} />, 
+      href: "/"
+    },
+    { 
+      icon: <Ionicons name="stats-chart-outline" style={styles.icon} />, 
+      href: "/stats" 
+    },
+    { 
+      icon: <AntDesign name="user" style={styles.icon} />, 
+      href: "/profile" 
+    },
+    { 
+      icon: <AntDesign name="setting" style={styles.icon} />, 
+      href: "/settings" 
+    },
   ];
 
   return (
     <View style={styles.container}>
       <View style={styles.navigationBar}>
-        {/* Items Dinamicos */}
-        {menu_items.map((item, index) => (
+        {
+        menu_items.map((item, index) => (
           <Link key={index} href={item.href} asChild>
             <Pressable 
-              style={ styles.button } 
-              onPressIn={handlePress}>
+              style={ styles.button }>
                 {item.icon}
-                <Text style={styles.text_item}>{item.name}</Text>
             </Pressable>
           </Link>
-        ))}
+        ))
+        }
       </View>
     </View>
   );
@@ -46,14 +49,17 @@ export default function MenuBar() {
 
 const styles = StyleSheet.create({
   container: {
+    width: "100%",
     justifyContent: "center",
     alignItems: "center",
-    padding: 5
+    padding: 8,
+    backgroundColor: "transparent",
+    position: "absolute",
+    bottom: 0,
   },
   navigationBar: {
     width: "100%",
-    height: 70,
-    color: "white",
+    height: 60,
     backgroundColor: COLORS.secondary,
     justifyContent: 'space-between',
     alignItems: 'center',
@@ -61,20 +67,18 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
     paddingRight: 10,
     flexDirection: "row",
-    margin: 5,
+    boxShadow: "0 0 8px rgba(0, 0, 0, 1)"
   },
   button: {
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
-    padding: 10,
+    paddingLeft: 8,
+    paddingRight: 8,
+    width: "25%",
   },
   icon: {
     fontSize: 25,
     color: COLORS.primary,
-  },
-  text_item: {
-    color: "white",
-    fontSize: 10,
   },
 });

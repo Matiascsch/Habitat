@@ -1,32 +1,38 @@
 import { Slot } from "expo-router";
 import React from "react";
-import { View, Text, SafeAreaView, StyleSheet } from "react-native";
+import { StatusBar } from "expo-status-bar";
+import { View, Text, SafeAreaView, StyleSheet, ScrollView } from "react-native";
 
 import { COLORS } from "../constants/Themes";
 
-import MenuBar from "../components/menu/MenuBar";
+import MenuBar from "../components/MenuBar";
 
 export default function CustomLayout() {
   return (
-    <SafeAreaView style={styles.container}>
-      {/* Contenido dinámico */}
-      <View style={styles.content}>
-        <Slot />
-      </View>
+    <>
+      <SafeAreaView style={styles.container}>
+        <StatusBar 
+          hidden={false}
+          backgroundColor={COLORS.background}
+        />
+        <StatusBar></StatusBar>
+        {/* Contenido dinámico */}
+        <ScrollView style={styles.content}>
+          <Slot />
+        </ScrollView>
 
+      </SafeAreaView>
       {/* Footer global */}
-      <View>
-        <MenuBar />
-      </View>
-      
-    </SafeAreaView>
+      <MenuBar />
+    </>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: COLORS.background
+    backgroundColor: COLORS.background,
+    paddingBottom: 60,
   },
   content: {
     flex: 1,
