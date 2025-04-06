@@ -1,11 +1,16 @@
 import { COLORS } from '@/constants/Themes';
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, ViewStyle } from 'react-native';
 
 
-export default function SquareComponent({ children }: React.PropsWithChildren<{}>) {
+interface SquareComponentProps {
+  children: React.ReactNode;
+  style?: ViewStyle;
+}
+
+export default function SquareComponent({ children, style }: SquareComponentProps) {
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, style]}>
       {children}
     </View>
   );

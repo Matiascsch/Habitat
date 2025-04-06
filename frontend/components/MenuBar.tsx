@@ -35,8 +35,7 @@ export default function MenuBar() {
         {
         menu_items.map((item, index) => (
           <Link key={index} href={item.href} asChild>
-            <Pressable 
-              style={ styles.button }>
+            <Pressable style={styles.button}>
                 {item.icon}
             </Pressable>
           </Link>

@@ -1,11 +1,12 @@
 import { useState } from 'react';
-import { View, Text, TextInput, StyleSheet, ScrollView } from 'react-native';
+import { View, Text, TextInput, StyleSheet } from 'react-native';
 
 import SquareComponent from '@/components/SquareComponent';
-import { COLORS } from '@/constants/Themes';
 
 export default function HomeScreen() {
   const [texto, setTexto] = useState<string>('');
+
+  const last_item = 9 // SACAR 
 
   return (
     <View style={styles.container}>
@@ -14,28 +15,18 @@ export default function HomeScreen() {
           style={styles.input}
           value={texto}
           onChangeText={setTexto}
-          placeholder="Tu mensaje" />
+          placeholder="Busca Aquì" />
       </View>
-
-      <SquareComponent>
-        <Text style={styles.text}>AnuncioAA</Text>
-      </SquareComponent>
-
-      <SquareComponent>
-        <Text style={styles.text}>AnuncioAA</Text>
-      </SquareComponent>
-
-      <SquareComponent>
-        <Text style={styles.text}>AnuncioAA</Text>
-      </SquareComponent>
-
-      <SquareComponent>
-        <Text style={styles.text}>AnuncioAA</Text>
-      </SquareComponent>
-
-      <SquareComponent>
-        <Text style={styles.text}>AnuncioAA</Text>
-      </SquareComponent>
+      {
+        // SACAR ESTO CUANDO SE DEFINA LAS VISTAS
+        [...Array(10).keys()].map((_, index) => (
+          <SquareComponent key={index}
+        style={ (index == last_item) ? {marginBottom: 90} : {} }
+          >
+            <Text style={styles.text} >Anuncio {index + 1}</Text>
+          </SquareComponent>
+        ))
+      }
     </View>
   );
 }
