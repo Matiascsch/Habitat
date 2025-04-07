@@ -6,7 +6,7 @@ import { COLORS } from "../constants/Themes";
 
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 
-import MenuBar from "@/components/MenuBar";
+import MenuBar from "@/components/navigation/MenuBar";
 import HeaderComp from "@/components/HeaderComp";
 
 export default function CustomLayout() {

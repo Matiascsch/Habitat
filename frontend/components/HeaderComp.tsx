@@ -26,6 +26,7 @@ const style = StyleSheet.create({
     width: "100%",
     height: 90,
     boxShadow: "0 3px 8px rgba(0, 0, 0, 1)",
+    elevation: 5,
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",

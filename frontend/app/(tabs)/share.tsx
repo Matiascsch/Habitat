@@ -2,24 +2,13 @@ import React from "react";
 import { Stack } from "expo-router";
 import { StyleSheet, View, Text } from "react-native";
 import { COLORS } from "@/constants/Themes";
-import IncomesComp from "@/components/stats/IncomesComp";
-import ToDoComp from "@/components/stats/ToDoComp";
 
 
-export default function StatsLayout() {
+export default function ShareLayout() {
   return (
     <View style={styles.container}>
-      <Stack.Screen options={{ title: "stats" }} />
-
-      <Text style={{color: 'white'}}>Estadisticas</Text>
-
-      <IncomesComp />
-
-      <IncomesComp />
-
-      <ToDoComp />
-
-      <Text style={styles.text}>Stats</Text>
+      <Stack.Screen options={{ title: "Share" }} />
+      <Text style={styles.text}>Share</Text>
     </View>
   );
 }

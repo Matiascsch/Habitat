@@ -20,14 +20,20 @@ export default function MenuBar() {
       href: "/stats" 
     },
     { 
+      icon: <Ionicons name="add-sharp" style={styles.icon_add} />, 
+      href: "/settings" 
+    },
+    { 
+      icon: <AntDesign name="sharealt" style={styles.icon} />, 
+      href: "/share" 
+    },
+    { 
       icon: <AntDesign name="user" style={styles.icon} />, 
       href: "/profile" 
     },
-    { 
-      icon: <AntDesign name="setting" style={styles.icon} />, 
-      href: "/settings" 
-    },
   ];
+
+  const add_href = '/settings'
 
   return (
     <View style={styles.container}>
@@ -35,7 +41,13 @@ export default function MenuBar() {
         {
         menu_items.map((item, index) => (
           <Link key={index} href={item.href} asChild>
-            <Pressable style={styles.button}>
+            <Pressable
+              style={
+                (item.href == add_href) 
+                ? styles.button_add
+                : styles.button
+              } 
+            >
                 {item.icon}
             </Pressable>
           </Link>
@@ -74,7 +86,21 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     paddingLeft: 8,
     paddingRight: 8,
-    width: "25%",
+    width: "20%",
+  },
+  button_add: {
+    transform: [
+      { translateY: -20 }
+    ],
+    backgroundColor: COLORS.primary,
+    borderRadius: '50%',
+    borderColor: 'white',
+    borderWidth: 2,
+  },
+  icon_add: {
+    fontSize: 25,
+    color: "black",
+    padding: 12,
   },
   icon: {
     fontSize: 25,

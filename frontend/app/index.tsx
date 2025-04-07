@@ -17,6 +17,11 @@ export default function HomeScreen() {
           onChangeText={setTexto}
           placeholder="Busca Aquì" />
       </View>
+
+      <View>
+        <Text style={styles.text}>Mis Habitats</Text>
+      </View>
+      
       {
         // SACAR ESTO CUANDO SE DEFINA LAS VISTAS
         [...Array(10).keys()].map((_, index) => (
@@ -43,7 +48,6 @@ const styles = StyleSheet.create({
   },
   searchBar: {
     width: '100%',
-    padding: 10,
   },
   input: {
     width: '100%',
@@ -53,7 +57,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     backgroundColor: 'white',
     borderRadius: 20,
-    boxShadow: "0 3px 5px rgba(0, 0, 0, 1)",
+    boxShadow: "0 3px 8px rgba(0, 0, 0, 1)",
   },
   content: {
     width: '100%',
