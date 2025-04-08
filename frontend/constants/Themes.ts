@@ -5,6 +5,14 @@ export const COLORS = {
   background_secondary: "#2C2F36",
 }
 
+export const SHADOWS = {
+  small: '0 0 4px rgba(0,0,0, 0.9)',
+  mid: '0 0 6px rgba(0,0,0, 0.9)',
+  big: '0 0 8px rgba(0,0,0, 0.9)',
+  under: '0 3px 4px rgba(0,0,0, 0.9)',
+  above: '0 -3px 4px rgba(0,0,0, 0.9)'
+}
+
 export const SIZES = {
   base: 8,
   font: 14,

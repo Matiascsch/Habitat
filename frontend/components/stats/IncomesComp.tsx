@@ -1,4 +1,4 @@
-import { COLORS } from "@/constants/Themes";
+import { COLORS, SHADOWS } from "@/constants/Themes";
 import { StyleSheet, View, Text } from "react-native";
 
 
@@ -16,11 +16,12 @@ export default function IncomesComp(){
 const style = StyleSheet.create({
   container: {
     width: '100%',
-    height: 250,
+    height: 270,
     backgroundColor: COLORS.background_secondary,
-    borderRadius: 20,
-    boxShadow: '0 0 8px rgba(0,0,0, 0.9)',
+    borderRadius: 5,
+    boxShadow: SHADOWS.small,
     overflow: 'hidden',
-    margin: 5
+    margin: 5,
+    padding: 8
   }
 })

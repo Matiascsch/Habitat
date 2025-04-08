@@ -4,6 +4,7 @@ import { StyleSheet, View, Text } from "react-native";
 import { COLORS } from "@/constants/Themes";
 import IncomesComp from "@/components/stats/IncomesComp";
 import ToDoComp from "@/components/stats/ToDoComp";
+import BasicIncomeComp from "@/components/stats/BasicIncomeComp";
 
 
 export default function StatsLayout() {
@@ -11,15 +12,18 @@ export default function StatsLayout() {
     <View style={styles.container}>
       <Stack.Screen options={{ title: "stats" }} />
 
-      <Text style={{color: 'white'}}>Estadisticas</Text>
+      <Text style={{width: "100%", color: 'white', textAlign: "left", fontSize: 24, textDecorationLine: 'underline'}}>Estadisticas</Text>
+
+      <BasicIncomeComp />
 
       <IncomesComp />
-
       <IncomesComp />
 
+      <Text style={{width: "100%", color: 'white', textAlign: "left",  textDecorationLine: 'underline', marginTop: 5}}>Ùltimas acciones</Text>
+      <ToDoComp />
+      <ToDoComp />
       <ToDoComp />
 
-      <Text style={styles.text}>Stats</Text>
     </View>
   );
 }
@@ -29,12 +33,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-  },
-  text: {
-    padding: 20,
-    borderWidth: 2,
-    borderRadius: 20,
-    borderColor: COLORS.primary,
-    color: "white",
-  },
+    marginBottom: 50
+  }
 });
