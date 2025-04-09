@@ -21,7 +21,7 @@ export default function MenuBar() {
     },
     { 
       icon: <Ionicons name="add-sharp" style={styles.icon_add} />, 
-      href: "/settings" 
+      href: "/addNew" 
     },
     { 
       icon: <AntDesign name="sharealt" style={styles.icon} />, 
@@ -33,7 +33,7 @@ export default function MenuBar() {
     },
   ];
 
-  const add_href = '/settings'
+  const add_href = '/addNew'
 
   return (
     <View style={styles.container}>

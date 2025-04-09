@@ -1,4 +1,4 @@
-import { COLORS } from '@/constants/Themes';
+import { COLORS, SHADOWS } from '@/constants/Themes';
 import React from 'react';
 import { View, Text, StyleSheet, ViewStyle } from 'react-native';
 
@@ -22,11 +22,11 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.background_secondary,
     width: "100%",
     height: 240,
-    borderRadius: 20,
+    borderRadius: 5,
     padding: 10,
     justifyContent: 'center',
     alignItems: 'center',
-    boxShadow: "0 0 8px rgba(0, 0, 0, 0.5)",
+    boxShadow: SHADOWS.small,
     margin: 10
   },
   title: {

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { View, Text, TextInput, StyleSheet } from 'react-native';
 
 import SquareComponent from '@/components/SquareComponent';
+import { SHADOWS } from '@/constants/Themes';
 
 export default function HomeScreen() {
   const [texto, setTexto] = useState<string>('');
@@ -56,8 +57,8 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     paddingHorizontal: 10,
     backgroundColor: 'white',
-    borderRadius: 20,
-    boxShadow: "0 3px 8px rgba(0, 0, 0, 1)",
+    borderRadius: 5,
+    boxShadow: SHADOWS.small,
   },
   content: {
     width: '100%',
