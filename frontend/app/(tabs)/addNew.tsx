@@ -8,7 +8,7 @@ export default function SettingsLayout() {
   return (
     <View style={styles.container}>
       <Stack.Screen options={{ title: "settings" }} />
-      <Text style={styles.text}>Settings</Text>
+      <Text style={styles.text}>Add New</Text>
     </View>
   );
 }
@@ -18,6 +18,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
+    padding: 16
   },
   text: {
     padding: 20,
