@@ -14,7 +14,7 @@ interface ThemedTextProps extends TextProps {
 const getFontSizeByType = (type: TextType = 'body'): number => {
   switch (type) {
     case 'title':
-      return 24;
+      return 18;
     case 'caption':
       return 12;
     case 'body':
