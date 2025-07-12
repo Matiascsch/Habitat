@@ -11,6 +11,9 @@ import {
   Alert,
 } from 'react-native';
 
+import { DevSettings } from 'react-native';
+
+
 const { width } = Dimensions.get('window');
 const ORANGE = '#FF7A00';
 const BLACK = '#121212';
@@ -44,7 +47,7 @@ const LoginRegisterScreen = () => {
       Alert.alert('Error', 'Completa todos los campos');
       return;
     }
-    Alert.alert('Login', `Bienvenido: ${email}`);
+    DevSettings.reload();
   };
 
   const handleRegister = () => {
