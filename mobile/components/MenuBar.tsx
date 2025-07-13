@@ -1,10 +1,10 @@
-import { Pressable, StyleSheet, View } from "react-native"
-import ThemedText from "./ui/text/ThemedText"
 import { useThemeColor } from "@/hooks/useThemeColor";
 import React, { useState } from "react";
+import { Pressable, StyleSheet, View } from "react-native";
+import ThemedText from "./ui/text/ThemedText";
 
-import { RelativePathString, router } from "expo-router";
 import { Ionicons } from '@expo/vector-icons';
+import { RelativePathString, router } from "expo-router";
 
 export const MenuBar = () => {
   const theme = useThemeColor();

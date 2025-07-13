@@ -2,32 +2,33 @@ import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 
-import React, { Fragment, useEffect, useState } from 'react';
-import { View, StyleSheet, ActivityIndicator } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { ActivityIndicator, StyleSheet, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-import LoginScreen from './login';
 import { MenuBar } from '@/components/MenuBar';
 import { useThemeColor } from '@/hooks/useThemeColor';
-import { useUserLogged, esperarYRetornar } from '@/hooks/useUserLogged';
+import { esperarYRetornar } from '@/hooks/useUserLogged';
+import LoginScreen from './login';
 
 
 export default function RootLayout() {
   const theme = useThemeColor();
   const [userLogged, setUserLogged] = useState<boolean | null>(null);
-  const [loaded] = useFonts({ SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'), });
+  const [loaded] = useFonts({ SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf') });
 
   useEffect(() => {
     const fetchLoginStatus = async () => {
-      const result = await esperarYRetornar(); // useUserLogged()
+      const result = await esperarYRetornar(); // simulación de login
       setUserLogged(result);
     };
-
     fetchLoginStatus();
   }, []);
 
+  const handleLoginSuccess = () => {
+    setUserLogged(true);
+  };
 
-  // Mientras carga la fuente o se espera la respuesta de login
   if (!loaded || userLogged === null) {
     return (
       <View style={styles.loaderContainer}>
@@ -36,17 +37,15 @@ export default function RootLayout() {
     );
   }
 
-  // Usuario no logueado
   if (!userLogged) {
     return (
       <SafeAreaView style={styles.safeAreaStyles}>
         <StatusBar style="auto" />
-        <LoginScreen />
+        <LoginScreen onLoginSuccess={handleLoginSuccess} />
       </SafeAreaView>
     );
-  } 
-  
-  // Usuario logueado
+  }
+
   return (
     <SafeAreaView style={styles.safeAreaStyles}>
       <StatusBar style="auto" />
@@ -58,7 +57,6 @@ export default function RootLayout() {
     </SafeAreaView>
   );
 }
-
 const styles = StyleSheet.create({
   safeAreaStyles: {
     flex: 1, 

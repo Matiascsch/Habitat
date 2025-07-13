@@ -1,30 +1,19 @@
 import React, { useState, useRef, useEffect } from 'react';
-import {
-  View,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  StyleSheet,
-  Animated,
-  Easing,
-  Dimensions,
-  Alert,
-} from 'react-native';
-
-import { DevSettings } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, Animated, Easing, Dimensions, Alert } from 'react-native';
 
 
 const { width } = Dimensions.get('window');
 const ORANGE = '#FF7A00';
 const BLACK = '#121212';
 
-const LoginRegisterScreen = () => {
-  const [isRegistering, setIsRegistering] = useState(false);
 
-  const [nombre, setNombre] = useState('');
-  const [apellido, setApellido] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+const LoginRegisterScreen = ({ onLoginSuccess }: { onLoginSuccess: () => void }) => {
+  const [isRegistering, setIsRegistering] = useState<boolean | null>(false);
+
+  const [nombre, setNombre] = useState<string>('');
+  const [apellido, setApellido] = useState<string>('');
+  const [email, setEmail] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
 
   const slideAnim = useRef(new Animated.Value(0)).current;
 
@@ -43,11 +32,12 @@ const LoginRegisterScreen = () => {
   });
 
   const handleLogin = () => {
-    if (!email || !password) {
-      Alert.alert('Error', 'Completa todos los campos');
-      return;
-    }
-    DevSettings.reload();
+    // if (!email || !password) {
+    //   Alert.alert('Error', 'Completa todos los campos');
+    //   return;
+    // }
+
+    onLoginSuccess();
   };
 
   const handleRegister = () => {
@@ -55,8 +45,9 @@ const LoginRegisterScreen = () => {
       Alert.alert('Error', 'Completa todos los campos');
       return;
     }
-    Alert.alert('Registro', `Registrado como: ${nombre} ${apellido}`);
+
     setIsRegistering(false);
+    onLoginSuccess();
   };
 
   return (
