@@ -1,5 +1,5 @@
-import ThemedText from '@/components/ui/text/ThemedText';
 import { AddNewCard } from '@/components/ui/cards/AddNewCard';
+import ThemedText from '@/components/ui/text/ThemedText';
 import { useThemeColor } from '@/hooks/useThemeColor';
 import { Image, ScrollView, StyleSheet, View } from 'react-native';
 
@@ -7,7 +7,7 @@ export default function HomeScreen() {
   const theme = useThemeColor();
 
   return (
-    <ScrollView style={{ flex: 1, backgroundColor: theme.background }}>
+    <ScrollView style={{ flex: 1, backgroundColor: theme.background_section }}>
 
       <View style={{ boxShadow: '0 2px 5px rgba(0, 0, 0, 0.9)' }}>
         <Image source={require('@/assets/images/partial-react-logo.png')} style={{

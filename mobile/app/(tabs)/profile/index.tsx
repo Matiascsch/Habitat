@@ -1,9 +1,11 @@
+import { useThemeColor } from '@/hooks/useThemeColor';
 import { Ionicons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
 import React from 'react';
 import { Image, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 export default function ProfileScreen() {
+  const theme = useThemeColor();
   const router = useRouter();
 
   const userLogged = {
@@ -12,7 +14,7 @@ export default function ProfileScreen() {
   } // useUserLogged();
 
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView style={[styles.container, { backgroundColor: theme.background_section }]}>
       <View style={styles.avatarContainer}>
         <Image
           source={{ uri: 'https://i.pravatar.cc/150?img=56' }} // Puedes cambiarlo por una imagen real
@@ -58,7 +60,6 @@ export default function ProfileScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#000',
     paddingTop: 40,
     paddingHorizontal: 16,
   },
