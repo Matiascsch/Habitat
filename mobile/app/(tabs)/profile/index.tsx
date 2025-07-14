@@ -1,6 +1,6 @@
 import { useThemeColor } from '@/hooks/useThemeColor';
 import { Ionicons } from '@expo/vector-icons';
-import { useRouter } from 'expo-router';
+import { Link, RelativePathString, useRouter } from 'expo-router';
 import React from 'react';
 import { Image, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
@@ -12,6 +12,12 @@ export default function ProfileScreen() {
     name: "Mati Carballo",
     email: "mati@example.com"
   } // useUserLogged();
+
+  const sections = [
+    { title: 'Detalles del perfil', icon: 'person-outline', url: 'details' },
+    { title: 'Seguridad', icon: 'shield-checkmark-outline', url: 'security' },
+    { title: 'Notificaciones', icon: 'notifications-outline', url: 'notifications' },
+  ]
 
   return (
     <ScrollView style={[styles.container, { backgroundColor: theme.background_section }]}>
@@ -25,9 +31,11 @@ export default function ProfileScreen() {
       </View>
 
       <View style={styles.buttonRow}>
-        <TouchableOpacity style={styles.button} onPress={() => router.push('/(tabs)/profile/details')}>
-          <Ionicons name="settings-outline" size={18} color="#000" />
-          <Text style={styles.buttonText}>Editar Perfil</Text>
+        <TouchableOpacity style={styles.button}>
+          <Link href='/(tabs)/profile/details'>
+            <Ionicons name="settings-outline" size={18} color="#000" />
+            <Text style={styles.buttonText}>Editar Perfil</Text>
+          </Link>
         </TouchableOpacity>
 
         <TouchableOpacity style={[styles.button, styles.logoutButton]} onPress={() => console.log('Logout')}>
@@ -37,19 +45,16 @@ export default function ProfileScreen() {
       </View>
 
       <View style={styles.optionsList}>
-        {[
-          { title: 'Detalles del perfil', icon: 'person-outline', url: '/(tabs)/profile/details' },
-          { title: 'Seguridad', icon: 'shield-checkmark-outline', url: '/(tabs)/profile/security' },
-          { title: 'Notificaciones', icon: 'notifications-outline', url: '/(tabs)/profile/notifications' },
-        ].map((item, idx) => (
+        {sections.map((item, idx) => (
           <TouchableOpacity
             key={idx}
             style={styles.option}
-            onPress={() => router.push(item.url)}
           >
-            <Ionicons name={item.icon as any} size={22} color="#FFA500" />
-            <Text style={styles.optionText}>{item.title}</Text>
-            <Ionicons name="chevron-forward-outline" size={18} color="#666" />
+            <Link href={`/(tabs)/profile/${item.url}` as RelativePathString}>
+              <Ionicons name={item.icon as any} size={22} color="#FFA500" />
+              <Text style={styles.optionText}>{item.title}</Text>
+              <Ionicons name="chevron-forward-outline" size={18} color="#666" />
+            </Link>
           </TouchableOpacity>
         ))}
       </View>

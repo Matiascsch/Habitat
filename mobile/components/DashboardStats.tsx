@@ -1,10 +1,10 @@
-import BalanceResume from "@/components/ui/charts/BalanceResume";
-import MonthlyLineChart from "@/components/ui/charts/LineChart/MonthlyLineChart";
-import CustomSelector from "./ui/text/CustomSelector";
-import React, { useState, useEffect } from 'react';
+import BalanceResume from "@/components/ui/cards/BalanceResume";
+import MonthlyLineChart from "@/components/ui/charts/MonthlyLineChart";
+import React, { useEffect, useState } from 'react';
 import { ScrollView, StyleSheet, View } from 'react-native';
-import { SitemapType } from "expo-router";
-import HighlightsCard from "./ui/charts/HighlightsCard";
+import HighlightsCard from "./ui/cards/HighlightsCard";
+import CustomPieChart from "./ui/charts/CustomPieChart";
+import CustomSelector from "./ui/text/CustomSelector";
 
 type Dataset = {
   balanceResume: {
@@ -29,15 +29,15 @@ export default function DashboardStats() {
         gastos: [1000, 1500, 5000, 4000, 3800, 4500, 6000, null, null, null, null, null],
       }
     } :
-    {
-      balanceResume: {
-        ingresos: 2340,
-        egresos: 1230
-      },
-      lineChart: {
-        gastos: [12000, 13500, 15000, 14000, 13800, 14500, 16000, null, null, null, null, null],
+      {
+        balanceResume: {
+          ingresos: 2340,
+          egresos: 1230
+        },
+        lineChart: {
+          gastos: [12000, 13500, 15000, 14000, 13800, 14500, 16000, null, null, null, null, null],
+        }
       }
-    }
 
     return res;
   }
@@ -52,14 +52,14 @@ export default function DashboardStats() {
   return (
     <ScrollView style={styles.screen}>
       <View style={styles.wrapper}>
-        <CustomSelector 
-          value={tipo} 
+        <CustomSelector
+          value={tipo}
           onChange={setTipo} />
 
-        <BalanceResume 
-          ingresos={dataset.balanceResume.ingresos} 
+        <BalanceResume
+          ingresos={dataset.balanceResume.ingresos}
           egresos={dataset.balanceResume.egresos} />
-        
+
         <HighlightsCard
           maxIngresoMes="Agosto"
           maxGastoMes="Julio"
@@ -67,8 +67,19 @@ export default function DashboardStats() {
           habitatMasIngreso="Depto 3B"
         />
 
-        <MonthlyLineChart 
-          data={dataset.lineChart.gastos} 
+        <CustomPieChart
+          title="Distribución de Gastos"
+          data={[
+            { name: 'Alquiler', value: 6000 },
+            { name: 'Servicios', value: 3000 },
+            { name: 'Mantenimiento', value: 2000 },
+            { name: 'Expensas', value: 1500 },
+          ]}
+        />
+
+
+        <MonthlyLineChart
+          data={dataset.lineChart.gastos}
           label="Gastos 2025" />
       </View>
     </ScrollView>
