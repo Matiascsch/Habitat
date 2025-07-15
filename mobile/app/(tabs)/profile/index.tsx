@@ -49,12 +49,11 @@ export default function ProfileScreen() {
           <TouchableOpacity
             key={idx}
             style={styles.option}
+            onPress={() => router.push(`/(tabs)/profile/${item.url}` as RelativePathString)} 
           >
-            <Link href={`/(tabs)/profile/${item.url}` as RelativePathString}>
-              <Ionicons name={item.icon as any} size={22} color="#FFA500" />
-              <Text style={styles.optionText}>{item.title}</Text>
-              <Ionicons name="chevron-forward-outline" size={18} color="#666" />
-            </Link>
+            <Ionicons name={item.icon as any} size={22} color="#FFA500" />
+            <Text style={styles.optionText}>{item.title}</Text>
+            <Ionicons name="chevron-forward-outline" size={22} color="#666" />
           </TouchableOpacity>
         ))}
       </View>
@@ -128,6 +127,6 @@ const styles = StyleSheet.create({
   optionText: {
     color: '#fff',
     fontSize: 16,
-    flex: 1,
+    flex: 1
   },
 });

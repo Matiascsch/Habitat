@@ -1,5 +1,5 @@
-import { AddNewCard } from '@/components/ui/cards/AddNewCard';
-import ThemedText from '@/components/ui/text/ThemedText';
+import { AddNewCard } from '@/components/ui/AddNewCard';
+import ThemedText from '@/components/ui/ThemedText';
 import { useThemeColor } from '@/hooks/useThemeColor';
 import { Image, ScrollView, StyleSheet, View } from 'react-native';
 

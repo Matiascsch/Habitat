@@ -1,10 +1,10 @@
-import BalanceResume from "@/components/ui/cards/BalanceResume";
+import BalanceResume from "@/components/ui/charts/BalanceResume";
 import MonthlyLineChart from "@/components/ui/charts/MonthlyLineChart";
 import React, { useEffect, useState } from 'react';
 import { ScrollView, StyleSheet, View } from 'react-native';
-import HighlightsCard from "./ui/cards/HighlightsCard";
 import CustomPieChart from "./ui/charts/CustomPieChart";
-import CustomSelector from "./ui/text/CustomSelector";
+import HighlightsCard from "./ui/charts/HighlightsCard";
+import CustomSelector from "./ui/CustomSelector";
 
 type Dataset = {
   balanceResume: {

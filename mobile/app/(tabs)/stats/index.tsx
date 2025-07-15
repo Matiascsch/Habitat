@@ -1,5 +1,5 @@
 import DashboardStats from '@/components/DashboardStats';
-import ThemedText from '@/components/ui/text/ThemedText';
+import ThemedText from '@/components/ui/ThemedText';
 import { useThemeColor } from '@/hooks/useThemeColor';
 import { useRouter } from 'expo-router';
 import { Button, ScrollView, StyleSheet } from 'react-native';

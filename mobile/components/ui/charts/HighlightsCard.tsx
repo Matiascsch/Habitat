@@ -1,7 +1,7 @@
-import React from 'react';
-import { View, Text, StyleSheet, Dimensions } from 'react-native';
+import ThemedText from '@/components/ui/ThemedText';
 import { Ionicons } from '@expo/vector-icons';
-import ThemedText from '@/components/ui/text/ThemedText';
+import React from 'react';
+import { StyleSheet, View } from 'react-native';
 
 type HighlightsProps = {
   maxIngresoMes: string;
